@@ -2,11 +2,12 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
+# تثبيت المتطلبات
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# نسخ ملف البوت
+COPY bot.py .
 
-EXPOSE 5000
-
-CMD ["python", "main.py"]
+# تشغيل البوت
+CMD ["python", "bot.py"]
