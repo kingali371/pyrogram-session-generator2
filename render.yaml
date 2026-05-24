@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pyrogram-session-bot
+    runtime: docker
+    repo: https://github.com/kingali371/pyrogram-session-generator2
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
