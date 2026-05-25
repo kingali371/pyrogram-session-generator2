@@ -1,0 +1,21 @@
+name: Run Telegram Bot
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # كل 5 دقائق ليبقى نشطاً
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - run: pip install pyrogram tgcrypto
+      - run: python bot.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
