@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: worker
     name: pyrogram-session-bot
     runtime: docker
     repo: https://github.com/kingali371/pyrogram-session-generator2
